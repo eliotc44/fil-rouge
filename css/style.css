@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --white:#fff;
+    --translucid:#efefef;
+    --black:#010101;
+    
+}
+body{
+    font-family: monospace;
+    font-size: 16px;
+    min-height: 100vh;
+    display: grid;
+    background-color: rgb(223, 220, 255)
+}
+h1{
+    font-size: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    z-index: -1;
+    box-shadow:   0 2px 2px rgba(0, 0, 0, 0.1),
+  0 6px 10px rgba(0, 0, 0, 0.05),
+  inset 1px 1px 0 rgba(239, 239, 239, 0.65);;
+
+}
+h1 .char{
+    transform-origin: bottom;
+        z-index: -1;
+}
+.flair {
+  position: fixed;
+  opacity: 0;
+  width: 50px;
+  z-index: 100;
+}
+
