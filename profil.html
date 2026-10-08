@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr" class="page-profile">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Votre profil OOPS Livraison : statistiques d’envoi, informations de compte et facteurs préférés.">
+    <title>OOPS Livraison - Profil</title>
+    <link rel="icon" href="./images/svg/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./scripts/main.js"></script>
+</head>
+
+<body>
+    <header id="header" class="site-header">
+        <!-- COMPOSANT site-header
+             JS : createEntete(profil) et initMenu() · scripts/entete.js
+             Données : profils.avatar_url, profils.nom_affiche -->
+        <a href="./index.html">
+            <img class="logo" src="./images/svg/logo.svg" alt="OOPS Livraison, accueil" width="49" height="49">
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
+            <!-- SI menu fermé -->
+            <img src="./images/svg/burger.svg" alt="" width="32" height="32">
+            <!-- SINON -->
+            <img src="./images/svg/close.svg" alt="" width="32" height="32" hidden>
+            <!-- FIN SI -->
+        </button>
+        <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a class="nav-cta" href="./messagerie.html">Messages</a></li>
+                <li>
+                    <a href="./nos-livreurs.html">
+                        <img class="cap" src="./images/svg/casquette.svg" alt="" width="28" height="14">
+                        Nos livreurs
+                    </a>
+                </li>
+                <!-- SI connecté -->
+                <li>
+                    <a class="avatar-link" href="./profil.html" aria-current="page">
+                        <img class="avatar" src="./images/variable.webp" alt="" width="30" height="30">
+                        <span>variable</span>
+                    </a>
+                </li>
+                <!-- SINON -->
+                <li hidden><a class="btn btn-outline" href="./inscription.html">S’inscrire</a></li>
+                <!-- FIN SI -->
+            </ul>
+        </nav>
+        <!-- FIN COMPOSANT site-header -->
+    </header>
+
+    <main id="content">
+        <section class="profile-hero">
+            <img class="avatar" src="./images/variable.webp" alt="" width="160" height="160">
+            <div>
+                <h1>variable</h1>
+                <p>@variable · membre depuis <time datetime="variable">variable</time></p>
+                <ul class="badges">
+                    <li>Facteur préféré : variable</li>
+                    <li>variable envois</li>
+                </ul>
+            </div>
+            <a class="btn btn-large" href="./reglages.html">Modifier le profil</a>
+        </section>
+
+        <section>
+            <hgroup class="section-title">
+                <h2>Mes statistiques</h2>
+                <p>Votre vie de messagerie, en chiffres (plus ou moins exacts)</p>
+            </hgroup>
+            <!-- COMPOSANT stats
+                 JS : scripts/profil.js
+                 Données : v_mes_statistiques.messages_envoyes, messages_recus, mots_perdus, anecdotes -->
+            <ul class="stats">
+                <li>
+                    <strong>variable</strong>
+                    <span>messages envoyés</span>
+                </li>
+                <li>
+                    <strong>variable</strong>
+                    <span>messages reçus</span>
+                </li>
+                <li>
+                    <strong>variable</strong>
+                    <span>mots perdus par Lisa</span>
+                </li>
+                <li>
+                    <strong>variable</strong>
+                    <span>anecdotes de Gwendoline</span>
+                </li>
+            </ul>
+            <!-- FIN COMPOSANT stats -->
+        </section>
+
+        <section>
+            <div class="profile-cards">
+                <article class="profile-card">
+                    <h2>Mes informations</h2>
+                    <dl class="info-list">
+                        <div>
+                            <dt>Pseudo</dt>
+                            <dd>variable</dd>
+                        </div>
+                        <div>
+                            <dt>Adresse e-mail</dt>
+                            <dd>variable</dd>
+                        </div>
+                        <div>
+                            <dt>Bio</dt>
+                            <dd>variable</dd>
+                        </div>
+                    </dl>
+                    <a class="btn btn-large btn-outline" href="./reglages.html#compte">Modifier mes informations</a>
+                </article>
+                <article class="profile-card">
+                    <h2>Mes facteurs préférés</h2>
+                    <p>Classés selon le nombre de messages qu’ils vous ont livrés</p>
+                    <ol class="rank-list">
+                        <!-- COMPOSANT rank-list (ligne)
+                             JS : scripts/profil.js
+                             Données : v_mes_facteurs_preferes.rang, nom, couleur, avatar_url, delai_affiche, total
+                             BOUCLE : un <li> par facteur classé
+                             SI rang = 1 : classe active sur la pastille -->
+                        <li style="--courier-color: variable">
+                            <strong>#variable</strong>
+                            <span class="courier-chip active">
+                                <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
+                                <span>variable</span>
+                                <small>variable</small>
+                            </span>
+                            <data value="variable">variable envois</data>
+                        </li>
+                        <!-- FIN COMPOSANT rank-list (ligne) -->
+                    </ol>
+                    <a class="btn btn-large btn-outline" href="./nos-livreurs.html">Voir tous les livreurs</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="site-footer">
+        <!-- COMPOSANT site-footer
+             JS : createFooter() · scripts/footer.js
+             Données : statique -->
+        <div class="footer-brand">
+            <img class="logo" src="./images/svg/logo.svg" alt="" width="106" height="106">
+            <img class="cap" src="./images/svg/casquette.svg" alt="" width="189" height="96">
+        </div>
+        <nav class="footer-nav" aria-label="Navigation du pied de page">
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./suivi.html">Suivi des messages</a></li>
+                <li><a href="./nos-livreurs.html">Nos livreurs</a></li>
+                <li><a href="./messagerie.html">Messagerie</a></li>
+                <li><a href="./profil.html">Profil</a></li>
+                <li><a href="./reglages.html">Réglages</a></li>
+            </ul>
+        </nav>
+        <div class="footer-legal">
+            <p>© 2026 OOPS Livraison — Projet fil-rouge 8WEB101</p>
+            <p>Aucun message n’a été maltraité… ou presque.</p>
+        </div>
+        <!-- FIN COMPOSANT site-footer -->
+    </footer>
+
+</body>
+
+</html>

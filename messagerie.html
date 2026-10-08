@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr" class="page-messaging">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Écrivez à vos contacts : chaque message est confié au facteur de votre choix et arrive quand il arrive.">
+    <title>OOPS Livraison - Messagerie</title>
+    <link rel="icon" href="./images/svg/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./scripts/main.js"></script>
+</head>
+
+<body>
+    <header id="header" class="site-header">
+        <!-- COMPOSANT site-header
+             JS : createEntete(profil) et initMenu() · scripts/entete.js
+             Données : profils.avatar_url, profils.nom_affiche -->
+        <a href="./index.html">
+            <img class="logo" src="./images/svg/logo.svg" alt="OOPS Livraison, accueil" width="49" height="49">
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
+            <!-- SI menu fermé -->
+            <img src="./images/svg/burger.svg" alt="" width="32" height="32">
+            <!-- SINON -->
+            <img src="./images/svg/close.svg" alt="" width="32" height="32" hidden>
+            <!-- FIN SI -->
+        </button>
+        <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a class="nav-cta" href="./messagerie.html" aria-current="page">Messages</a></li>
+                <li>
+                    <a href="./nos-livreurs.html">
+                        <img class="cap" src="./images/svg/casquette.svg" alt="" width="28" height="14">
+                        Nos livreurs
+                    </a>
+                </li>
+                <!-- SI connecté -->
+                <li>
+                    <a class="avatar-link" href="./profil.html">
+                        <img class="avatar" src="./images/variable.webp" alt="" width="30" height="30">
+                        <span>variable</span>
+                    </a>
+                </li>
+                <!-- SINON -->
+                <li hidden><a class="btn btn-outline" href="./inscription.html">S’inscrire</a></li>
+                <!-- FIN SI -->
+            </ul>
+        </nav>
+        <!-- FIN COMPOSANT site-header -->
+    </header>
+
+    <main id="content" class="messaging">
+        <aside class="conversation-list">
+            <h1>Messages</h1>
+            <a class="btn btn-icon" href="#">
+                <img src="./images/svg/plus.svg" alt="" width="16" height="16">
+                Nouveau
+            </a>
+            <div class="field">
+                <label>
+                    <span>Rechercher</span>
+                    <input type="search" name="recherche" placeholder="Nom, facteur, message…" autocomplete="off">
+                </label>
+            </div>
+            <ul id="conversationList">
+                <!-- COMPOSANT conversation-item
+                     JS : createConversationItem(conversation, actif) · scripts/bulle.js
+                     Données : v_conversations.contact_nom, contact_avatar, apercu, apercu_type, apercu_at, non_lus, id
+                     BOUCLE : un <li> par conversation
+                     SI conversation active : aria-current="true" sur le lien -->
+                <li>
+                    <a class="conversation-item" href="./messagerie.html?c=variable" aria-current="true">
+                        <img class="avatar" src="./images/variable.webp" alt="" width="48" height="48">
+                        <strong>variable</strong>
+                        <!-- SI apercu_type n’est pas photo -->
+                        <p>variable</p>
+                        <!-- SINON -->
+                        <p hidden>Photo</p>
+                        <!-- FIN SI -->
+                        <time datetime="variable">variable</time>
+                        <!-- SI non_lus > 0 -->
+                        <span class="unread-badge">variable</span>
+                        <!-- FIN SI -->
+                    </a>
+                </li>
+                <!-- FIN COMPOSANT conversation-item -->
+            </ul>
+        </aside>
+        <section class="conversation">
+            <header class="conversation-header">
+                <button class="back-button" type="button" aria-label="Retour aux conversations">‹</button>
+                <img class="avatar" src="./images/variable.webp" alt="" width="52" height="52">
+                <h2>variable</h2>
+                <!-- SI en_route > 0 -->
+                <p>variable message en route vers vous</p>
+                <!-- FIN SI -->
+                <a class="btn btn-outline" href="./suivi.html">Voir le suivi</a>
+            </header>
+            <ol id="thread" class="thread">
+                <!-- COMPOSANT day-separator
+                     JS : formaterHeure() · scripts/temps.js
+                     Données : v_messages.envoye_at
+                     BOUCLE : un <li> à chaque changement de jour -->
+                <li class="day-separator"><time datetime="variable">variable</time></li>
+                <!-- FIN COMPOSANT day-separator -->
+                <!-- COMPOSANT bubble
+                     JS : createBulle(message) · scripts/bulle.js et scripts/effets.js
+                     Données : v_messages.texte_livre, type, est_envoye_par_moi, envoye_at, facteur_nom, effets
+                     BOUCLE : un <li> par message livré, et par message que j’ai envoyé même en route -->
+                <!-- SI est_envoye_par_moi est faux -->
+                <li class="bubble bubble-received">
+                    <p>
+                        variable
+                        <!-- SI effet = ajout_mots -->
+                        <ins class="added-word" hidden>variable</ins>
+                        <!-- FIN SI -->
+                        <!-- SI effet = suppression_mots -->
+                        <span class="lost-word" hidden>____</span>
+                        <!-- FIN SI -->
+                        <!-- SI effet = anecdote -->
+                        <span class="anecdote" hidden>PS de variable : variable</span>
+                        <!-- FIN SI -->
+                        <!-- SI effet = police_aleatoire : un span par caractère -->
+                        <span style="--char-font: variable; --char-color: variable" hidden>v</span>
+                        <!-- FIN SI -->
+                    </p>
+                    <p class="bubble-meta"><time datetime="variable">variable</time> · livré par variable · variable</p>
+                </li>
+                <!-- SINON -->
+                <li class="bubble bubble-sent" hidden>
+                    <p>variable</p>
+                    <!-- SI message livré -->
+                    <p class="bubble-meta"><time datetime="variable">variable</time> · livré par variable · variable</p>
+                    <!-- SINON -->
+                    <p class="bubble-meta" hidden>En route avec variable</p>
+                    <!-- FIN SI -->
+                </li>
+                <!-- FIN SI -->
+                <!-- SI type = photo -->
+                <li class="bubble bubble-sent bubble-photo" hidden>
+                    <figure>
+                        <img src="./images/variable.webp" alt="variable" width="400" height="250">
+                        <!-- SI effets.photo_facteur -->
+                        <img class="courier-photo" src="./images/variable.webp" alt="" width="176" height="176" style="--rotation: variable; --x: variable; --y: variable">
+                        <!-- FIN SI -->
+                    </figure>
+                    <p class="bubble-meta"><time datetime="variable">variable</time> · livré par variable · variable</p>
+                </li>
+                <!-- FIN SI -->
+                <!-- FIN COMPOSANT bubble -->
+                <!-- COMPOSANT transit-card
+                     JS : scripts/bulle.js
+                     Données : v_messages.est_livre, arrivee_prevue_at, facteur_nom, couleur, delai_affiche, contact_nom
+                     BOUCLE : un <li> par message reçu pas encore livré -->
+                <li class="transit-card" style="--courier-color: variable">
+                    <span class="courier-chip active">
+                        <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
+                        <span>variable</span>
+                        <small>variable</small>
+                    </span>
+                    <p>variable arrive avec la réponse de variable</p>
+                    <div class="tracking-progress" role="progressbar" aria-label="Progression de la livraison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="variable" style="--progress: variable"></div>
+                    <!-- SI arrivee_prevue_at renseigné -->
+                    <p class="tracking-status">Arrivée dans variable</p>
+                    <!-- SINON -->
+                    <p class="tracking-status" hidden>Arrivée : quand Bob voudra</p>
+                    <!-- FIN SI -->
+                </li>
+                <!-- FIN COMPOSANT transit-card -->
+            </ol>
+            <form id="composerForm" class="composer">
+                <fieldset>
+                    <legend>Facteur :</legend>
+                    <div id="composerCouriers" class="chip-list">
+                        <!-- COMPOSANT courier-chip (choix)
+                             JS : createFacteurChip(facteur) · scripts/facteurCard.js
+                             Données : facteurs.nom, delai_affiche, couleur, avatar_url, id
+                             BOUCLE : un <label> par facteur actif, coché selon reglages.facteur_defaut_id -->
+                        <label class="courier-chip" style="--courier-color: variable">
+                            <input class="visually-hidden" type="radio" name="facteur" value="variable" checked>
+                            <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
+                            <span>variable</span>
+                            <small>variable</small>
+                        </label>
+                        <!-- FIN COMPOSANT courier-chip (choix) -->
+                    </div>
+                </fieldset>
+                <label class="btn btn-outline">
+                    <input class="visually-hidden" type="file" name="photo" accept="image/*">
+                    <span aria-hidden="true">+</span>
+                    <span>Photo</span>
+                </label>
+                <label>
+                    <span class="visually-hidden">Votre message</span>
+                    <textarea name="message" rows="1" placeholder="Écrire votre message…" required></textarea>
+                </label>
+                <button class="btn btn-icon" type="submit">
+                    <img src="./images/svg/plus.svg" alt="" width="16" height="16">
+                    Envoyer
+                </button>
+                <p class="field-hint">Livraison estimée : variable avec variable (contenu susceptible d’être modifié)</p>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
