@@ -545,6 +545,22 @@ fieldset legend {
     border-top: 2px solid var(--grey);
 }
 
+/* ---- Composant : loader ---- */
+.loader {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0.1875rem solid var(--grey);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: tourner 0.8s linear infinite;
+}
+
+@keyframes tourner {
+    to {
+        rotate: 360deg;
+    }
+}
+
 /* ---- Composant : avatar ---- */
 .avatar {
     flex: none;
@@ -1651,6 +1667,7 @@ label.courier-chip {
     ::before,
     ::after {
         transition: none;
+        animation: none;
     }
 }
 
