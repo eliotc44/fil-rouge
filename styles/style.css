@@ -1276,7 +1276,8 @@ label.courier-chip {
     color: var(--white);
 }
 
-.bubble span {
+.bubble span,
+.courier-table td span {
     font-family: var(--char-font, inherit);
     color: var(--char-color, inherit);
 }

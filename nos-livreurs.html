@@ -34,21 +34,7 @@
                 <h2>L’équipe au complet</h2>
                 <p>7 facteurs, 7 façons de livrer vos messages</p>
             </hgroup>
-            <ul id="courierList" class="courier-list">
-                <!-- COMPOSANT courier-card
-                     JS : createFacteurCard(facteur) · scripts/facteurCard.js
-                     Données : facteurs.nom, surnom, description, delai_affiche, couleur, avatar_url
-                     BOUCLE : un <li> par facteur actif, trié par ordre, les 7 -->
-                <li>
-                    <article class="courier-card" style="--courier-color: variable">
-                        <img class="avatar" src="./images/variable.webp" alt="variable" width="72" height="72">
-                        <h3>variable | variable</h3>
-                        <p>variable</p>
-                        <p class="delay-badge">variable</p>
-                    </article>
-                </li>
-                <!-- FIN COMPOSANT courier-card -->
-            </ul>
+            <ul id="courierList" class="courier-list"></ul>
         </section>
 
         <section class="comparison">
@@ -64,22 +50,7 @@
                         <th scope="col">Ce qui arrive à votre message</th>
                     </tr>
                 </thead>
-                <tbody id="courierTable">
-                    <!-- COMPOSANT courier-table (ligne)
-                         JS : createTableauFacteurs(facteurs) · scripts/facteurCard.js
-                         Données : facteurs.nom, delai_affiche, delai_cache, effet, couleur, avatar_url
-                         Libellé de l’effet calculé en JS depuis facteurs.effet
-                         BOUCLE : un <tr> par facteur actif, les 7 -->
-                    <tr style="--courier-color: variable">
-                        <th scope="row">
-                            <img class="avatar" src="./images/variable.webp" alt="" width="36" height="36">
-                            variable
-                        </th>
-                        <td>variable</td>
-                        <td>variable</td>
-                    </tr>
-                    <!-- FIN COMPOSANT courier-table (ligne) -->
-                </tbody>
+                <tbody id="courierTable"></tbody>
             </table>
             <a class="btn btn-large btn-icon" href="./messagerie.html">
                 <img src="./images/svg/plus.svg" alt="" width="16" height="16">

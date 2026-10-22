@@ -32,3 +32,7 @@ export function createNode(nodeDescr, data = {}) {
 export function afficherLoader(conteneur) {
     conteneur.replaceChildren(createNode({ tag: "div", class: "loader" }));
 }
+
+export function afficherMessageErreur(conteneur, message) {
+    conteneur.replaceChildren(createNode({ tag: "p", class: "field-error", text: message, attrs: { role: "alert" } }));
+}

@@ -4,6 +4,7 @@ import { afficherEntete } from "./entete.js";
 import { afficherFooter } from "./footer.js";
 import { initConnexion } from "./connexion.js";
 import { initInscription } from "./inscription.js";
+import { initLivreurs } from "./livreurs.js";
 
 const PAGES_CONNECTEES = ["index.html", "suivi.html", "messagerie.html", "profil.html", "reglages.html"];
 const PAGES_PUBLIQUES_DECONNECTEES = ["connexion.html", "inscription.html"];
@@ -38,6 +39,9 @@ async function init() {
 
     /* ---- PAGE INSCRIPTION ---- */
     if (page === "inscription.html") initInscription();
+
+    /* ---- PAGE NOS LIVREURS ---- */
+    if (page === "nos-livreurs.html") initLivreurs();
 }
 
 init();
