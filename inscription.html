@@ -13,44 +13,7 @@
 </head>
 
 <body>
-    <header id="header" class="site-header">
-        <!-- COMPOSANT site-header
-             JS : createEntete(profil) et initMenu() · scripts/entete.js
-             Données : profils.avatar_url, profils.nom_affiche -->
-        <a href="./index.html">
-            <img class="logo" src="./images/svg/logo.svg" alt="OOPS Livraison, accueil" width="49" height="49">
-        </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
-            <!-- SI menu fermé -->
-            <img src="./images/svg/burger.svg" alt="" width="32" height="32">
-            <!-- SINON -->
-            <img src="./images/svg/close.svg" alt="" width="32" height="32" hidden>
-            <!-- FIN SI -->
-        </button>
-        <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
-            <ul>
-                <li><a href="./index.html">Accueil</a></li>
-                <li><a class="nav-cta" href="./messagerie.html">Messages</a></li>
-                <li>
-                    <a href="./nos-livreurs.html">
-                        <img class="cap" src="./images/svg/casquette.svg" alt="" width="28" height="14">
-                        Nos livreurs
-                    </a>
-                </li>
-                <!-- SI connecté -->
-                <li hidden>
-                    <a class="avatar-link" href="./profil.html">
-                        <img class="avatar" src="./images/variable.webp" alt="" width="30" height="30">
-                        <span>variable</span>
-                    </a>
-                </li>
-                <!-- SINON -->
-                <li><a class="btn btn-outline" href="./connexion.html">Se connecter</a></li>
-                <!-- FIN SI -->
-            </ul>
-        </nav>
-        <!-- FIN COMPOSANT site-header -->
-    </header>
+    <header id="header" class="site-header"></header>
 
     <main id="content" class="auth">
         <aside class="brand-panel">
@@ -123,30 +86,7 @@
         </section>
     </main>
 
-    <footer id="footer" class="site-footer">
-        <!-- COMPOSANT site-footer
-             JS : createFooter() · scripts/footer.js
-             Données : statique -->
-        <div class="footer-brand">
-            <img class="logo" src="./images/svg/logo.svg" alt="" width="106" height="106">
-            <img class="cap" src="./images/svg/casquette.svg" alt="" width="189" height="96">
-        </div>
-        <nav class="footer-nav" aria-label="Navigation du pied de page">
-            <ul>
-                <li><a href="./index.html">Accueil</a></li>
-                <li><a href="./suivi.html">Suivi des messages</a></li>
-                <li><a href="./nos-livreurs.html">Nos livreurs</a></li>
-                <li><a href="./messagerie.html">Messagerie</a></li>
-                <li><a href="./profil.html">Profil</a></li>
-                <li><a href="./reglages.html">Réglages</a></li>
-            </ul>
-        </nav>
-        <div class="footer-legal">
-            <p>© 2026 OOPS Livraison — Projet fil-rouge 8WEB101</p>
-            <p>Aucun message n’a été maltraité… ou presque.</p>
-        </div>
-        <!-- FIN COMPOSANT site-footer -->
-    </footer>
+    <footer id="footer" class="site-footer"></footer>
 
 </body>
 

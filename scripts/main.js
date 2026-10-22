@@ -1,6 +1,7 @@
 import { getUtilisateur, exigerConnexion } from "./supabase.js";
 import { getProfil } from "./fetchProfil.js";
-import { initEntete, initMenu } from "./entete.js";
+import { afficherEntete } from "./entete.js";
+import { afficherFooter } from "./footer.js";
 import { initConnexion } from "./connexion.js";
 import { initInscription } from "./inscription.js";
 
@@ -21,7 +22,7 @@ async function init() {
     const page = window.location.pathname.split("/").pop() || "index.html";
     const pageConnectee = PAGES_CONNECTEES.includes(page);
 
-    initMenu();
+    afficherFooter();
 
     const utilisateur = pageConnectee ? await exigerConnexion() : await getUtilisateur();
     if (pageConnectee && !utilisateur) return;
@@ -30,7 +31,7 @@ async function init() {
         return;
     }
 
-    initEntete(await getProfilConnecte(utilisateur));
+    afficherEntete(await getProfilConnecte(utilisateur), page);
 
     /* ---- PAGE CONNEXION ---- */
     if (page === "connexion.html") initConnexion();
