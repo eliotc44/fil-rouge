@@ -32,54 +32,14 @@
         <section>
             <hgroup class="section-title">
                 <h2>En cours de livraison</h2>
-                <p>variable messages sont actuellement entre les mains de nos facteurs</p>
+                <p id="trackingCount">variable messages sont actuellement entre les mains de nos facteurs</p>
             </hgroup>
             <div class="filters" role="group" aria-label="Filtrer les suivis">
-                <button type="button" aria-pressed="true">Tous (variable)</button>
-                <button type="button" aria-pressed="false">Envoyés (variable)</button>
-                <button type="button" aria-pressed="false">Reçus (variable)</button>
+                <button type="button" value="tous" aria-pressed="true">Tous (variable)</button>
+                <button type="button" value="envoyes" aria-pressed="false">Envoyés (variable)</button>
+                <button type="button" value="recus" aria-pressed="false">Reçus (variable)</button>
             </div>
-            <ul id="trackingList" class="tracking-list">
-                <!-- COMPOSANT tracking-card
-                     JS : createSuiviCard(suivi) et updateSuiviCard(carte, suivi) · scripts/suiviCard.js
-                     Données : v_suivis.expediteur_nom (« Vous » SI est_envoye_par_moi), expediteur_avatar,
-                     destinataire_nom, destinataire_avatar, facteur_nom, facteur_couleur, progression,
-                     arrivee_prevue_at, id
-                     BOUCLE : un <li> par suivi -->
-                <li>
-                    <article class="tracking-card" style="--courier-color: variable">
-                        <div class="tracking-route">
-                            <figure>
-                                <img class="avatar" src="./images/variable.webp" alt="" width="60" height="60">
-                                <figcaption>variable</figcaption>
-                            </figure>
-                            <div class="tracking-progress" role="progressbar" aria-label="Progression de la livraison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="variable" style="--progress: variable">
-                                <img class="avatar" src="./images/variable.webp" alt="" width="40" height="40">
-                            </div>
-                            <!-- SI arrivee_prevue_at renseigné -->
-                            <time datetime="variable">variable</time>
-                            <!-- SINON -->
-                            <span hidden>??:??:??</span>
-                            <!-- FIN SI -->
-                            <figure>
-                                <img class="avatar" src="./images/variable.webp" alt="" width="60" height="60">
-                                <figcaption>variable</figcaption>
-                            </figure>
-                        </div>
-                        <p>Livraison opérée par variable</p>
-                        <!-- SI arrivee_prevue_at renseigné -->
-                        <p class="tracking-status">Arrivée prévue à variable</p>
-                        <!-- SINON -->
-                        <p class="tracking-status" hidden>Arrivée prévue : quand Bob voudra</p>
-                        <!-- FIN SI -->
-                        <a class="btn btn-outline" href="./messagerie.html?c=variable">Détails</a>
-                    </article>
-                </li>
-                <!-- FIN COMPOSANT tracking-card -->
-            </ul>
-            <!-- SI aucun suivi -->
-            <p hidden>Aucun message en route pour le moment.</p>
-            <!-- FIN SI -->
+            <ul id="trackingList" class="tracking-list"></ul>
         </section>
     </main>
 

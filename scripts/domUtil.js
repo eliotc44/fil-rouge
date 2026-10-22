@@ -36,3 +36,11 @@ export function afficherLoader(conteneur) {
 export function afficherMessageErreur(conteneur, message) {
     conteneur.replaceChildren(createNode({ tag: "p", class: "field-error", text: message, attrs: { role: "alert" } }));
 }
+
+/* Un <li> dans la liste, pour garder une liste valide */
+export function afficherMessageVide(liste, message) {
+    liste.replaceChildren(createNode({
+        tag: "li",
+        children: [{ tag: "p", class: "field-hint", text: message }]
+    }));
+}

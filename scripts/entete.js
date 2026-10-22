@@ -147,3 +147,23 @@ export function afficherEntete(profil, page) {
     document.getElementById("header").replaceWith(createEntete(profil, page));
     initMenu();
 }
+
+const bandeauTemplate = {
+    tag: "aside",
+    class: "mail-banner",
+    children: [
+        { tag: "p", dataKey: "texte" },
+        { tag: "a", class: "btn", text: "Consulter", attrs: { hrefKey: "lien" } }
+    ]
+};
+
+export function createBandeauCourrier(conversation) {
+    return createNode(bandeauTemplate, {
+        texte: `${conversation.contact_nom || conversation.contact_pseudo} vous a envoyé un nouveau courrier`,
+        lien: `./messagerie.html?c=${conversation.id}`
+    });
+}
+
+export function afficherBandeauCourrier(conversation) {
+    document.getElementById("content").prepend(createBandeauCourrier(conversation));
+}

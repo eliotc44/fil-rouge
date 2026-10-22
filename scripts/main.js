@@ -5,6 +5,8 @@ import { afficherFooter } from "./footer.js";
 import { initConnexion } from "./connexion.js";
 import { initInscription } from "./inscription.js";
 import { initLivreurs } from "./livreurs.js";
+import { initAccueil } from "./accueil.js";
+import { initSuivi } from "./suivi.js";
 
 const PAGES_CONNECTEES = ["index.html", "suivi.html", "messagerie.html", "profil.html", "reglages.html"];
 const PAGES_PUBLIQUES_DECONNECTEES = ["connexion.html", "inscription.html"];
@@ -32,7 +34,14 @@ async function init() {
         return;
     }
 
-    afficherEntete(await getProfilConnecte(utilisateur), page);
+    const profil = await getProfilConnecte(utilisateur);
+    afficherEntete(profil, page);
+
+    /* ---- PAGE ACCUEIL ---- */
+    if (page === "index.html") initAccueil(profil);
+
+    /* ---- PAGE SUIVI ---- */
+    if (page === "suivi.html") initSuivi();
 
     /* ---- PAGE CONNEXION ---- */
     if (page === "connexion.html") initConnexion();

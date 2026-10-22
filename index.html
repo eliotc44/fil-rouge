@@ -16,17 +16,6 @@
     <header id="header" class="site-header"></header>
 
     <main id="content">
-        <!-- COMPOSANT mail-banner
-             JS : createBandeauCourrier(conversation) · scripts/entete.js
-             Données : v_conversations.contact_nom, id -->
-        <!-- SI une conversation a non_lus > 0 -->
-        <aside class="mail-banner">
-            <p>variable vous a envoyé un nouveau courrier</p>
-            <a class="btn" href="./messagerie.html?c=variable">Consulter</a>
-        </aside>
-        <!-- FIN SI -->
-        <!-- FIN COMPOSANT mail-banner -->
-
         <section class="hero">
             <img class="logo" src="./images/svg/logo.svg" alt="" width="106" height="106">
             <div>
@@ -37,18 +26,7 @@
                     Programmer un nouvel envoi
                 </a>
                 <p>En service aujourd’hui :</p>
-                <ul id="activeCouriers" class="chip-list">
-                    <!-- COMPOSANT courier-chip
-                         JS : createFacteurChip(facteur) · scripts/facteurCard.js
-                         Données : facteurs.nom, delai_affiche, couleur, avatar_url
-                         BOUCLE : un <li> par facteur actif, les 3 premiers -->
-                    <li class="courier-chip" style="--courier-color: variable">
-                        <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
-                        <span>variable</span>
-                        <small>variable</small>
-                    </li>
-                    <!-- FIN COMPOSANT courier-chip -->
-                </ul>
+                <ul id="activeCouriers" class="chip-list"></ul>
             </div>
             <img class="cap" src="./images/svg/casquette.svg" alt="" width="189" height="96">
         </section>
@@ -58,44 +36,7 @@
                 <h2>Vos suivis</h2>
                 <p>Nos livreurs travaillent actuellement pour livrer vos messages dans les meilleurs délais</p>
             </hgroup>
-            <ul id="trackingList" class="tracking-list">
-                <!-- COMPOSANT tracking-card
-                     JS : createSuiviCard(suivi) et updateSuiviCard(carte, suivi) · scripts/suiviCard.js
-                     Données : v_suivis.expediteur_nom (« Vous » SI est_envoye_par_moi), expediteur_avatar,
-                     destinataire_nom, destinataire_avatar, facteur_nom, facteur_couleur, progression,
-                     arrivee_prevue_at, id
-                     BOUCLE : un <li> par suivi, les 3 premiers -->
-                <li>
-                    <article class="tracking-card" style="--courier-color: variable">
-                        <div class="tracking-route">
-                            <figure>
-                                <img class="avatar" src="./images/variable.webp" alt="" width="60" height="60">
-                                <figcaption>variable</figcaption>
-                            </figure>
-                            <div class="tracking-progress" role="progressbar" aria-label="Progression de la livraison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="variable" style="--progress: variable">
-                                <img class="avatar" src="./images/variable.webp" alt="" width="40" height="40">
-                            </div>
-                            <!-- SI arrivee_prevue_at renseigné -->
-                            <time datetime="variable">variable</time>
-                            <!-- SINON -->
-                            <span hidden>??:??:??</span>
-                            <!-- FIN SI -->
-                            <figure>
-                                <img class="avatar" src="./images/variable.webp" alt="" width="60" height="60">
-                                <figcaption>variable</figcaption>
-                            </figure>
-                        </div>
-                        <p>Livraison opérée par variable</p>
-                        <!-- SI arrivee_prevue_at renseigné -->
-                        <p class="tracking-status">Arrivée prévue à variable</p>
-                        <!-- SINON -->
-                        <p class="tracking-status" hidden>Arrivée prévue : quand Bob voudra</p>
-                        <!-- FIN SI -->
-                        <a class="btn btn-outline" href="./messagerie.html?c=variable">Détails</a>
-                    </article>
-                </li>
-                <!-- FIN COMPOSANT tracking-card -->
-            </ul>
+            <ul id="trackingList" class="tracking-list"></ul>
             <a class="btn btn-large" href="./suivi.html">Voir tous vos suivis</a>
         </section>
 
@@ -145,21 +86,7 @@
                 <h2>Nos livreurs (expérimentés)</h2>
                 <p>Nos livreurs sont triés sur le volet pour vous offrir la meilleure des expériences</p>
             </hgroup>
-            <ul id="courierList" class="courier-list">
-                <!-- COMPOSANT courier-card
-                     JS : createFacteurCard(facteur) · scripts/facteurCard.js
-                     Données : facteurs.nom, surnom, description, delai_affiche, couleur, avatar_url
-                     BOUCLE : un <li> par facteur actif, trié par ordre, les 3 premiers -->
-                <li>
-                    <article class="courier-card" style="--courier-color: variable">
-                        <img class="avatar" src="./images/variable.webp" alt="variable" width="72" height="72">
-                        <h3>variable | variable</h3>
-                        <p>variable</p>
-                        <p class="delay-badge">variable</p>
-                    </article>
-                </li>
-                <!-- FIN COMPOSANT courier-card -->
-            </ul>
+            <ul id="courierList" class="courier-list"></ul>
             <span class="dots" aria-hidden="true"></span>
             <a class="btn btn-large" href="./nos-livreurs.html">Découvrir toute notre équipe</a>
         </section>
