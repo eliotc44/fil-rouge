@@ -66,7 +66,7 @@
                 <div class="field">
                     <label>
                         <span>Pseudo</span>
-                        <input type="text" name="pseudo" autocomplete="username" required>
+                        <input type="text" name="pseudo" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="30" pattern="[a-z0-9._]{3,30}" title="3 à 30 caractères : lettres minuscules, chiffres, point ou tiret bas" required>
                     </label>
                     <!-- SI pseudo_disponible est faux -->
                     <p class="field-error" role="alert" hidden>Ce pseudo est déjà pris.</p>
@@ -112,6 +112,9 @@
                     <input type="checkbox" name="conditions" role="switch" required>
                     <span>J’accepte les conditions d’utilisation (et les manies des facteurs)</span>
                 </label>
+                <!-- SI erreur d’inscription -->
+                <p class="field-error" role="alert" hidden></p>
+                <!-- FIN SI -->
                 <button class="btn btn-large" type="submit">Créer mon compte</button>
             </form>
             <p class="divider">ou</p>
