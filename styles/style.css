@@ -545,6 +545,22 @@ fieldset legend {
     border-top: 2px solid var(--grey);
 }
 
+/* ---- Composant : loader ---- */
+.loader {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0.1875rem solid var(--grey);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: tourner 0.8s linear infinite;
+}
+
+@keyframes tourner {
+    to {
+        rotate: 360deg;
+    }
+}
+
 /* ---- Composant : avatar ---- */
 .avatar {
     flex: none;
@@ -564,6 +580,7 @@ fieldset legend {
 
 .courier-chip {
     --avatar-size: 2.125rem;
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -1260,9 +1277,14 @@ label.courier-chip {
     color: var(--white);
 }
 
-.bubble span {
+.bubble span,
+.courier-table td span {
     font-family: var(--char-font, inherit);
     color: var(--char-color, inherit);
+}
+
+.bubble p {
+    white-space: pre-line;
 }
 
 .bubble .added-word {
@@ -1311,6 +1333,7 @@ label.courier-chip {
     aspect-ratio: 1;
     border: 0.25rem solid var(--white);
     border-radius: 0.625rem;
+    background: var(--courier-color, var(--grey));
     rotate: var(--rotation, 0deg);
 }
 
@@ -1343,6 +1366,7 @@ label.courier-chip {
 }
 
 .composer fieldset,
+.composer .field-error,
 .composer .field-hint {
     grid-column: 1 / -1;
 }
@@ -1651,6 +1675,7 @@ label.courier-chip {
     ::before,
     ::after {
         transition: none;
+        animation: none;
     }
 }
 
