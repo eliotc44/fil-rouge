@@ -7,7 +7,10 @@ import { initInscription } from "./inscription.js";
 import { initLivreurs } from "./livreurs.js";
 import { initAccueil } from "./accueil.js";
 import { initSuivi } from "./suivi.js";
+<<<<<<< HEAD
 import { initMessagerie } from "./messagerie.js";
+=======
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
 
 const PAGES_CONNECTEES = ["index.html", "suivi.html", "messagerie.html", "profil.html", "reglages.html"];
 const PAGES_PUBLIQUES_DECONNECTEES = ["connexion.html", "inscription.html"];
@@ -44,9 +47,12 @@ async function init() {
     /* ---- PAGE SUIVI ---- */
     if (page === "suivi.html") initSuivi();
 
+<<<<<<< HEAD
     /* ---- PAGE MESSAGERIE ---- */
     if (page === "messagerie.html") initMessagerie(utilisateur);
 
+=======
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
     /* ---- PAGE CONNEXION ---- */
     if (page === "connexion.html") initConnexion();
 

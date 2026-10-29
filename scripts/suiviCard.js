@@ -126,12 +126,20 @@ export async function afficherSuivis(conteneur, suivis) {
  * Met les cartes à jour chaque seconde. quandArrive : un message est arrivé,
  * ou (toutes les 15 s) il y a un facteur à l’heure cachée : la page recharge la liste.
  */
+<<<<<<< HEAD
 export function animerSuivis(elements, quandArrive, mettreAJour = updateSuiviCard) {
+=======
+export function animerSuivis(elements, quandArrive) {
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
     let secondes = 0;
     const minuteur = setInterval(() => {
         secondes++;
         for (let { carte, suivi } of elements) {
+<<<<<<< HEAD
             if (!mettreAJour(carte, suivi)) {
+=======
+            if (!updateSuiviCard(carte, suivi)) {
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
                 clearInterval(minuteur);
                 setTimeout(quandArrive, 1500);
                 return;

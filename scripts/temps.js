@@ -29,6 +29,7 @@ export function formaterArrivee(date, maintenant = new Date()) {
     if (jours === 1) return `demain à ${heure}`;
     return `le ${date.toLocaleDateString("fr-FR", { day: "numeric", month: "short" })} à ${heure}`;
 }
+<<<<<<< HEAD
 
 export function estMemeJour(a, b) {
     return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
@@ -70,3 +71,5 @@ export function formaterDuree(ms) {
     if (secondes < 3600) return `${Math.ceil(secondes / 60)} min`;
     return `${Math.floor(secondes / 3600)}h${pad(Math.floor(secondes / 60) % 60)}`;
 }
+=======
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d

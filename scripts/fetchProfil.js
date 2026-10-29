@@ -9,6 +9,7 @@ export async function getProfil(utilisateurId) {
     if (error) throw error;
     return data;
 }
+<<<<<<< HEAD
 
 export async function getReglages(utilisateurId) {
     const { data, error } = await supabaseClient
@@ -19,3 +20,5 @@ export async function getReglages(utilisateurId) {
     if (error) throw error;
     return data;
 }
+=======
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d

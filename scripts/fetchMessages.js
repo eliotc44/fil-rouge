@@ -19,6 +19,7 @@ export async function getConversationNonLue() {
     if (error) throw error;
     return data[0] ?? null;
 }
+<<<<<<< HEAD
 
 export async function getConversations() {
     const { data, error } = await supabaseClient
@@ -104,3 +105,5 @@ export function ecouterMessages(rappel) {
         .on("postgres_changes", { event: "*", schema: "public", table: "messages" }, rappel)
         .subscribe();
 }
+=======
+>>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
