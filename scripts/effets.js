@@ -17,7 +17,6 @@ export function appliquerPoliceAleatoire(conteneur, texte) {
         conteneur.append(span);
     }
 }
-<<<<<<< HEAD
 
 /* ---- Effets dans le texte livré d’une bulle ---- */
 
@@ -121,5 +120,3 @@ export function getResumeEffet(message) {
     if (message.facteur_effet === "police_aleatoire") return "style aléatoire";
     return "";
 }
-=======
->>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d

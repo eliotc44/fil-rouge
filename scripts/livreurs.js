@@ -13,6 +13,6 @@ export async function initLivreurs() {
         afficherTableauFacteurs(tableau, facteurs);
     } catch (erreur) {
         console.error("Erreur chargement des facteurs :", erreur);
-        afficherMessageErreur(liste, "Les facteurs n’ont pas pu être chargés, recharge la page.");
+        afficherMessageErreur(liste, "Les facteurs n’ont pas pu être chargés, rechargez la page.");
     }
 }

@@ -45,7 +45,7 @@ async function recharger() {
         await afficherListe();
     } catch (erreur) {
         console.error("Erreur chargement des suivis :", erreur);
-        afficherMessageErreur(document.getElementById("trackingList"), "Les suivis n’ont pas pu être chargés, recharge la page.");
+        afficherMessageErreur(document.getElementById("trackingList"), "Les suivis n’ont pas pu être chargés, rechargez la page.");
     }
 }
 

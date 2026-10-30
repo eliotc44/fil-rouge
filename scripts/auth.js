@@ -27,7 +27,19 @@ export async function connecter(email, motDePasse, resterConnecte) {
     return data;
 }
 
+/* Déconnecte seulement cet appareil */
 export async function deconnecter() {
-    const { error } = await supabaseClient.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut({ scope: "local" });
+    if (error) throw error;
+}
+
+export async function modifierEmail(email) {
+    const { data, error } = await supabaseClient.auth.updateUser({ email: email });
+    if (error) throw error;
+    return data;
+}
+
+export async function modifierMotDePasse(motDePasse) {
+    const { error } = await supabaseClient.auth.updateUser({ password: motDePasse });
     if (error) throw error;
 }

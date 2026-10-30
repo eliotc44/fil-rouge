@@ -30,7 +30,6 @@ export function createNode(nodeDescr, data = {}) {
 }
 
 export function afficherLoader(conteneur) {
-<<<<<<< HEAD
     const loader = createNode({ tag: "div", class: "loader" });
     if (!conteneur.matches("ul, ol")) {
         conteneur.replaceChildren(loader);
@@ -51,13 +50,6 @@ export function afficherMessageErreur(conteneur, message) {
     const item = document.createElement("li");
     item.append(erreur);
     conteneur.replaceChildren(item);
-=======
-    conteneur.replaceChildren(createNode({ tag: "div", class: "loader" }));
-}
-
-export function afficherMessageErreur(conteneur, message) {
-    conteneur.replaceChildren(createNode({ tag: "p", class: "field-error", text: message, attrs: { role: "alert" } }));
->>>>>>> a5aa8dc3df95c058b766e8b2b3640667a841363d
 }
 
 /* Un <li> dans la liste, pour garder une liste valide */

@@ -57,95 +57,77 @@
                                 <input type="password" name="passwordConfirm" autocomplete="new-password" minlength="8">
                             </label>
                         </div>
+                        <p class="field-error" role="alert" hidden></p>
+                        <p class="field-hint" role="status" hidden></p>
                         <button class="btn btn-large" type="submit">Enregistrer</button>
                         <a class="btn btn-large btn-outline" href="./profil.html">Annuler</a>
                     </form>
                 </section>
                 <section id="notifications" class="settings-panel">
                     <h2>Notifications</h2>
-                    <!-- COMPOSANT setting-row (état)
-                         JS : initToggles() · scripts/formulaire.js, scripts/reglages.js
-                         Données : reglages.notif_message_livre, notif_facteur_en_route, notif_retards_bob, notif_anecdotes -->
                     <ul>
-                    <li class="setting-row">
-                        <h3>Message livré</h3>
-                        <p>Être prévenu dès qu’un facteur dépose un message dans votre boîte</p>
-                        <label class="switch">
-                            <input type="checkbox" name="notif_message_livre" role="switch" checked>
-                            <span class="visually-hidden">Message livré</span>
-                        </label>
-                    </li>
-                    <li class="setting-row">
-                        <h3>Facteur en route</h3>
-                        <p>Suivre le départ de chaque message que vous envoyez</p>
-                        <label class="switch">
-                            <input type="checkbox" name="notif_facteur_en_route" role="switch" checked>
-                            <span class="visually-hidden">Facteur en route</span>
-                        </label>
-                    </li>
-                    <li class="setting-row">
-                        <h3>Retards de Bob</h3>
-                        <p>Être prévenu quand Bob prend une pause (attention : très fréquent)</p>
-                        <label class="switch">
-                            <input type="checkbox" name="notif_retards_bob" role="switch" checked>
-                            <span class="visually-hidden">Retards de Bob</span>
-                        </label>
-                    </li>
-                    <li class="setting-row">
-                        <h3>Anecdotes de Gwendoline</h3>
-                        <p>Recevoir aussi ses anecdotes en notification</p>
-                        <label class="switch">
-                            <input type="checkbox" name="notif_anecdotes" role="switch" checked>
-                            <span class="visually-hidden">Anecdotes de Gwendoline</span>
-                        </label>
-                    </li>
+                        <li class="setting-row">
+                            <h3>Message livré</h3>
+                            <p>Être prévenu dès qu’un facteur dépose un message dans votre boîte</p>
+                            <label class="switch">
+                                <input type="checkbox" name="notif_message_livre" role="switch" checked>
+                                <span class="visually-hidden">Message livré</span>
+                            </label>
+                        </li>
+                        <li class="setting-row">
+                            <h3>Facteur en route</h3>
+                            <p>Suivre le départ de chaque message que vous envoyez</p>
+                            <label class="switch">
+                                <input type="checkbox" name="notif_facteur_en_route" role="switch" checked>
+                                <span class="visually-hidden">Facteur en route</span>
+                            </label>
+                        </li>
+                        <li class="setting-row">
+                            <h3>Retards de Bob</h3>
+                            <p>Être prévenu quand Bob prend une pause (attention : très fréquent)</p>
+                            <label class="switch">
+                                <input type="checkbox" name="notif_retards_bob" role="switch" checked>
+                                <span class="visually-hidden">Retards de Bob</span>
+                            </label>
+                        </li>
+                        <li class="setting-row">
+                            <h3>Anecdotes de Gwendoline</h3>
+                            <p>Recevoir aussi ses anecdotes en notification</p>
+                            <label class="switch">
+                                <input type="checkbox" name="notif_anecdotes" role="switch" checked>
+                                <span class="visually-hidden">Anecdotes de Gwendoline</span>
+                            </label>
+                        </li>
                     </ul>
-                    <!-- FIN COMPOSANT setting-row (état) -->
                 </section>
                 <section id="facteur" class="settings-panel">
                     <h2>Facteur par défaut</h2>
                     <p>Ce facteur sera présélectionné à chaque nouveau message. Vous pourrez toujours en changer avant l’envoi.</p>
                     <fieldset>
                         <legend class="visually-hidden">Facteur par défaut</legend>
-                        <div id="defaultCourier" class="chip-list">
-                        <!-- COMPOSANT courier-chip (choix)
-                             JS : createFacteurChip(facteur) · scripts/facteurCard.js
-                             Données : facteurs.nom, delai_affiche, couleur, avatar_url, id
-                             BOUCLE : un <label> par facteur actif, coché selon reglages.facteur_defaut_id -->
-                        <label class="courier-chip" style="--courier-color: variable">
-                            <input class="visually-hidden" type="radio" name="facteur" value="variable" checked>
-                            <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
-                            <span>variable</span>
-                            <small>variable</small>
-                        </label>
-                        <!-- FIN COMPOSANT courier-chip (choix) -->
-                        </div>
+                        <div id="defaultCourier" class="chip-list"></div>
                     </fieldset>
                 </section>
                 <section id="confidentialite" class="settings-panel">
                     <h2>Confidentialité</h2>
-                    <!-- COMPOSANT setting-row (état)
-                         JS : initToggles() · scripts/formulaire.js, scripts/reglages.js
-                         Données : profils.visible_dans_recherche -->
                     <ul>
-                    <li class="setting-row">
-                        <h3>Apparaître dans la recherche</h3>
-                        <p>Les autres utilisateurs peuvent vous trouver grâce à votre pseudo</p>
-                        <label class="switch">
-                            <input type="checkbox" name="visible_dans_recherche" role="switch" checked>
-                            <span class="visually-hidden">Apparaître dans la recherche</span>
-                        </label>
-                    </li>
+                        <li class="setting-row">
+                            <h3>Apparaître dans la recherche</h3>
+                            <p>Les autres utilisateurs peuvent vous trouver grâce à votre pseudo</p>
+                            <label class="switch">
+                                <input type="checkbox" name="visible_dans_recherche" role="switch" checked>
+                                <span class="visually-hidden">Apparaître dans la recherche</span>
+                            </label>
+                        </li>
                     </ul>
-                    <!-- FIN COMPOSANT setting-row (état) -->
                 </section>
                 <section class="danger-zone">
                     <h2>Supprimer mon compte</h2>
                     <p>Tous vos messages seront effacés, même ceux que Jérôme n’a pas encore livrés. Cette action est définitive.</p>
-                    <button class="btn btn-outline" type="button">Supprimer mon compte</button>
+                    <button id="deleteButton" class="btn btn-outline" type="button">Supprimer mon compte</button>
                 </section>
             </div>
-            <button class="btn btn-outline" type="button">Se déconnecter</button>
+            <button id="logoutButton" class="btn btn-outline" type="button">Se déconnecter</button>
         </section>
     </main>
 

@@ -72,7 +72,7 @@ async function chargerConversations() {
         if (etat.recherche.trim().length >= 2) await chercherPersonnes(etat.recherche);
     } catch (erreur) {
         console.error("Erreur chargement des conversations :", erreur);
-        afficherMessageErreur(document.getElementById("conversationList"), "Les conversations n’ont pas pu être chargées, recharge la page.");
+        afficherMessageErreur(document.getElementById("conversationList"), "Les conversations n’ont pas pu être chargées, rechargez la page.");
     }
 }
 
@@ -128,7 +128,7 @@ async function demarrerConversation(profilId) {
         await selectionnerConversation(id, true);
     } catch (erreur) {
         console.error("Erreur ouverture de la conversation :", erreur);
-        afficherMessageErreur(document.getElementById("conversationList"), "La conversation n’a pas pu être ouverte, réessaie.");
+        afficherMessageErreur(document.getElementById("conversationList"), "La conversation n’a pas pu être ouverte, réessayez.");
     }
 }
 
@@ -235,7 +235,7 @@ async function chargerFil(versLeBas = false) {
         }
     } catch (erreur) {
         console.error("Erreur chargement des messages :", erreur);
-        afficherMessageErreur(fil, "Les messages n’ont pas pu être chargés, réessaie.");
+        afficherMessageErreur(fil, "Les messages n’ont pas pu être chargés, réessayez.");
     }
 }
 
@@ -329,7 +329,7 @@ async function envoyer(evt) {
         await Promise.all([chargerConversations(), chargerFil(true)]);
     } catch (erreur) {
         console.error("Erreur envoi :", erreur);
-        afficherErreur(formulaire, "Le facteur n’a pas pu partir, réessaie.");
+        afficherErreur(formulaire, "Le facteur n’a pas pu partir, réessayez.");
     }
     bouton.disabled = false;
 }
@@ -390,7 +390,7 @@ export async function initMessagerie(utilisateur) {
         initComposeur(facteurDefaut?.slug ?? "eric");
     } catch (erreur) {
         console.error("Erreur chargement de la messagerie :", erreur);
-        afficherMessageErreur(liste, "La messagerie n’a pas pu être chargée, recharge la page.");
+        afficherMessageErreur(liste, "La messagerie n’a pas pu être chargée, rechargez la page.");
         return;
     }
 

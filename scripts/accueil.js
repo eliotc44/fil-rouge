@@ -19,7 +19,7 @@ async function chargerFacteurs() {
     } catch (erreur) {
         console.error("Erreur chargement des facteurs :", erreur);
         enService.replaceChildren();
-        afficherMessageErreur(cartes, "Les facteurs n’ont pas pu être chargés, recharge la page.");
+        afficherMessageErreur(cartes, "Les facteurs n’ont pas pu être chargés, rechargez la page.");
     }
 }
 
@@ -32,7 +32,7 @@ async function chargerSuivis() {
         minuteurSuivis = animerSuivis(elements, chargerSuivis);
     } catch (erreur) {
         console.error("Erreur chargement des suivis :", erreur);
-        afficherMessageErreur(liste, "Les suivis n’ont pas pu être chargés, recharge la page.");
+        afficherMessageErreur(liste, "Les suivis n’ont pas pu être chargés, rechargez la page.");
     }
 }
 

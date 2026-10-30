@@ -4,7 +4,7 @@ import { afficherLoader } from "./domUtil.js";
 import { afficherFacteurs } from "./facteurCard.js";
 import {
     afficherErreur, effacerErreur, afficherErreurChamp, effacerErreurChamp,
-    normaliserPseudo, pseudoEstValide
+    normaliserPseudo, pseudoEstValide, MESSAGE_PSEUDO_INVALIDE
 } from "./formulaire.js";
 
 async function verifierPseudo(champ) {
@@ -12,7 +12,7 @@ async function verifierPseudo(champ) {
     if (champ.value === "") return true;
 
     if (!pseudoEstValide(champ.value)) {
-        afficherErreurChamp(champ, "3 à 30 caractères : lettres minuscules, chiffres, point ou tiret bas.");
+        afficherErreurChamp(champ, MESSAGE_PSEUDO_INVALIDE);
         return false;
     }
     try {
@@ -29,7 +29,7 @@ function getMessageErreur(erreur) {
     const message = (erreur.message ?? "").toLowerCase();
     if (message.includes("already registered")) return "Cette adresse e-mail est déjà utilisée.";
     if (message.includes("database error")) return "Ce pseudo n’est pas valide ou est déjà pris.";
-    return "L’inscription n’a pas abouti, réessaie.";
+    return "L’inscription n’a pas abouti, réessayez.";
 }
 
 async function envoyerInscription(evt, formulaire) {
@@ -50,7 +50,7 @@ async function envoyerInscription(evt, formulaire) {
         return;
     }
     if (!champs.facteur?.value) {
-        afficherErreur(formulaire, "Choisis un facteur par défaut.");
+        afficherErreur(formulaire, "Choisissez un facteur par défaut.");
         return;
     }
 
@@ -64,7 +64,7 @@ async function envoyerInscription(evt, formulaire) {
             window.location.replace("./index.html");
             return;
         }
-        afficherErreur(formulaire, "Compte créé : confirme ton adresse e-mail, puis connecte-toi.");
+        afficherErreur(formulaire, "Compte créé : confirmez votre adresse e-mail, puis connectez-vous.");
     } catch (erreur) {
         console.error("Erreur inscription :", erreur);
         afficherErreur(formulaire, getMessageErreur(erreur));
@@ -89,6 +89,6 @@ export async function initInscription() {
     } catch (erreur) {
         console.error("Erreur chargement des facteurs :", erreur);
         choix.replaceChildren();
-        afficherErreur(formulaire, "Les facteurs n’ont pas pu être chargés, recharge la page.");
+        afficherErreur(formulaire, "Les facteurs n’ont pas pu être chargés, rechargez la page.");
     }
 }
