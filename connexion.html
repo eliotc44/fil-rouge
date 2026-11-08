@@ -20,18 +20,7 @@
             <img class="logo" src="./images/svg/logo.svg" alt="" width="120" height="120">
             <p>Vos messages, livrés par de vrais (faux) facteurs</p>
             <p>Choisissez un facteur, écrivez votre message et suivez sa livraison en direct… à vos risques et périls.</p>
-            <ul id="activeCouriers" class="chip-list">
-                <!-- COMPOSANT courier-chip
-                     JS : createFacteurChip(facteur) · scripts/facteurCard.js
-                     Données : facteurs.nom, delai_affiche, couleur, avatar_url
-                     BOUCLE : un <li> par facteur actif, les 3 premiers -->
-                <li class="courier-chip" style="--courier-color: variable">
-                    <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
-                    <span>variable</span>
-                    <small>variable</small>
-                </li>
-                <!-- FIN COMPOSANT courier-chip -->
-            </ul>
+            <ul id="activeCouriers" class="chip-list"></ul>
             <img class="cap" src="./images/svg/casquette.svg" alt="" width="189" height="96">
         </aside>
         <section class="auth-form">
@@ -50,9 +39,7 @@
                         <input type="password" name="password" autocomplete="current-password" required>
                     </label>
                 </div>
-                <!-- SI erreur de connexion -->
                 <p class="field-error" role="alert" hidden>Adresse e-mail ou mot de passe incorrect.</p>
-                <!-- FIN SI -->
                 <div class="form-row">
                     <label class="switch">
                         <input type="checkbox" name="remember" role="switch">

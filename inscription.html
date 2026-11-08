@@ -31,9 +31,7 @@
                         <span>Pseudo</span>
                         <input type="text" name="pseudo" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="30" pattern="[a-z0-9._]{3,30}" title="3 à 30 caractères : lettres minuscules, chiffres, point ou tiret bas" required>
                     </label>
-                    <!-- SI pseudo_disponible est faux -->
                     <p class="field-error" role="alert" hidden>Ce pseudo est déjà pris.</p>
-                    <!-- FIN SI -->
                 </div>
                 <div class="field">
                     <label>
@@ -56,28 +54,14 @@
                 </div>
                 <fieldset>
                     <legend>Votre facteur par défaut</legend>
-                    <div id="signupCouriers" class="chip-list">
-                        <!-- COMPOSANT courier-chip (choix)
-                             JS : createFacteurChip(facteur) · scripts/facteurCard.js
-                             Données : facteurs.nom, delai_affiche, couleur, avatar_url, id
-                             BOUCLE : un <label> par facteur actif, les 7 ; coché : Eric -->
-                        <label class="courier-chip" style="--courier-color: variable">
-                            <input class="visually-hidden" type="radio" name="facteur" value="variable" checked>
-                            <img class="avatar" src="./images/variable.webp" alt="" width="34" height="34">
-                            <span>variable</span>
-                            <small>variable</small>
-                        </label>
-                        <!-- FIN COMPOSANT courier-chip (choix) -->
-                    </div>
+                    <div id="signupCouriers" class="chip-list"></div>
                     <p class="field-hint">Modifiable à tout moment dans vos réglages.</p>
                 </fieldset>
                 <label class="switch">
                     <input type="checkbox" name="conditions" role="switch" required>
                     <span>J’accepte les conditions d’utilisation (et les manies des facteurs)</span>
                 </label>
-                <!-- SI erreur d’inscription -->
                 <p class="field-error" role="alert" hidden></p>
-                <!-- FIN SI -->
                 <button class="btn btn-large" type="submit">Créer mon compte</button>
             </form>
             <p class="divider">ou</p>
