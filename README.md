@@ -187,6 +187,16 @@ erDiagram
 
 L’heure d’arrivée et l’effet du facteur sont calculés par la base au moment de l’envoi : impossible de choisir son délai ou d’éviter Eric. Les photos sont rangées dans deux espaces de stockage : `avatars` (public) et `photos` (privé, lisible par le destinataire seulement après la livraison).
 
+## Utilisation de l’IA
+
+Nous avons utilisé Claude (Anthropic) comme outil d’aide :
+
+- pour la rédaction des messages de commit ;
+- comme aide à la programmation (HTML, CSS, JavaScript, SQL de Supabase) ;
+- pour la rédaction de ce README.
+
+Les maquettes Figma, les illustrations et les choix de conception sont de notre fait.
+
 ## Auteurs
 
 - Eliot Chataigner
