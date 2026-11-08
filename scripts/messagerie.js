@@ -281,6 +281,12 @@ function majComposeur() {
         : estimation;
 }
 
+/* Le champ grandit avec son texte : la hauteur passe par la variable --height du CSS */
+function ajusterChamp(champ) {
+    champ.style.removeProperty("--height");
+    if (champ.value !== "") champ.style.setProperty("--height", `${champ.scrollHeight}px`);
+}
+
 function viderPhoto() {
     etat.fichier = null;
     document.getElementById("composerForm").elements.photo.value = "";
@@ -324,6 +330,7 @@ async function envoyer(evt) {
             await envoyerMessage(etat.conversationId, facteur.id, formulaire.elements.message.value);
         }
         formulaire.elements.message.value = "";
+        ajusterChamp(formulaire.elements.message);
         viderPhoto();
         majComposeur();
         await Promise.all([chargerConversations(), chargerFil(true)]);
@@ -343,6 +350,7 @@ function initComposeur(slugDefaut) {
         if (evt.target.name === "photo") choisirPhoto(evt.target.files[0]);
         if (evt.target.name === "facteur") majComposeur();
     });
+    formulaire.elements.message.addEventListener("input", (evt) => ajusterChamp(evt.target));
     formulaire.elements.message.addEventListener("keydown", (evt) => {
         if (evt.key === "Enter" && !evt.shiftKey && ENTREE_ENVOIE.matches) {
             evt.preventDefault();

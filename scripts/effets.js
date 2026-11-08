@@ -73,14 +73,21 @@ function afficherAnecdote(conteneur, texte, anecdote) {
     conteneur.append(createNode({ tag: "span", class: "anecdote", text: texte.slice(coupure + 2) }));
 }
 
+/* Sur une bulle rouge (mes envois), le rouge et le bleu d’Emma ne se liraient pas */
+const COULEURS_SUR_ROUGE = {
+    "#B6302E": "var(--white)",
+    "#3A2FFF": "var(--grey)"
+};
+
 /* Emma : une police et une couleur par caractère, tirées par la base */
-function afficherStyles(conteneur, texte, styles) {
+function afficherStyles(conteneur, texte, styles, surRouge) {
     Array.from(texte).forEach((caractere, i) => {
         const span = createNode({ tag: "span", text: caractere });
         const style = styles[i];
         if (style) {
+            const couleur = surRouge ? COULEURS_SUR_ROUGE[style.couleur.toUpperCase()] : null;
             span.style.setProperty("--char-font", `"${style.police}"`);
-            span.style.setProperty("--char-color", style.couleur);
+            span.style.setProperty("--char-color", couleur ?? style.couleur);
         }
         conteneur.append(span);
     });
@@ -98,7 +105,7 @@ export function afficherTexteLivre(conteneur, message) {
     } else if (message.facteur_effet === "anecdote") {
         afficherAnecdote(conteneur, texte, effets.anecdote);
     } else if (message.facteur_effet === "police_aleatoire" && effets.styles) {
-        afficherStyles(conteneur, texte, effets.styles);
+        afficherStyles(conteneur, texte, effets.styles, message.est_envoye_par_moi);
     } else {
         conteneur.append(texte);
     }
